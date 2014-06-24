@@ -15,10 +15,10 @@
     "url": "https://github.com/mekanika/adapter-browser/issues"
   },
   "dependencies": {
-    "mekanika-adapter": "~0.1.0"
+    "mekanika-adapter": "~0.2.0"
   },
   "devDependencies": {
-    "mekanika-query": "~0.2.0",
+    "mekanika-query": "~0.3.0",
     "mocha": "~1.20.1",
     "chai": "~1.9.1",
     "jshint": "~2.5.1"
