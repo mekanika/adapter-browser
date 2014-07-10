@@ -335,7 +335,7 @@ exports.find = function (req, cb) {
       cb( null, finals );
     }
 
-    else cb( null, found );
+    else cb( null, table );
 
   });
 
@@ -399,4 +399,3 @@ exports.update = function (req, cb) {
   });
 
 };
-
