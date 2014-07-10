@@ -10,8 +10,8 @@ build: lint
 	@NODE_ENV=test mocha --reporter dot $(TESTFILES)
 	@browserify index.js -o dist/adapter-browser.js -s browser
 	@uglifyjs dist/adapter-browser.js -m -c -o dist/adapter-browser.min.tmp
-	#@cat ./node_modules/localforage/dist/localforage.min.js dist/adapter-browser.min.tmp > dist/adapter-browser.min.js
-	#@rm dist/adapter-browser.min.tmp
+	@cat ./components/localforage/dist/localforage.min.js dist/adapter-browser.min.tmp > dist/adapter-browser.min.js
+	@rm dist/adapter-browser.min.tmp
 
 test:
 	@NODE_ENV=test mocha \
