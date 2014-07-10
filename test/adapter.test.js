@@ -44,7 +44,7 @@ describe('create', function () {
   it('generates a unique id on newly created records', function () {
     var qo = query().from('users').create({name:'joe', power:15});
     browser.exec( qo, function (err, res) {
-      expect( res[0] )
+      expect( res[0] );
     });
   });
 
