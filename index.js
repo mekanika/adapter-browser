@@ -73,7 +73,7 @@ exports.exec = function ( req, cb ) {
 
   return exports[ req.action ]
     ? exports[ req.action ]( req, cb )
-    : cb( 'No action defined:'+req.action );
+    : cb( 'No action defined: '+req.action );
 
 };
 
@@ -192,6 +192,8 @@ exports.create = function (req, cb) {
 
     // Add new content to table
     req.content.forEach( function ( model ) {
+      // Generate a random unique id on the model
+      if (!model.id) model.id = Math.random().toString(36).substr(2);
       table.push( model );
     });
 

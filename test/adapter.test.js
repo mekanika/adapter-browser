@@ -36,8 +36,15 @@ describe('create', function () {
     var qo = query().from('users').create({name:'joe', power:15});
     browser.exec( qo, function ( err, res ) {
       expect( err ).to.equal( null );
-      expect( res ).to.have.keys( 'name', 'power' );
+      expect( res ).to.include.keys( 'name', 'power' );
       done();
+    });
+  });
+
+  it('generates a unique id on newly created records', function () {
+    var qo = query().from('users').create({name:'joe', power:15});
+    browser.exec( qo, function (err, res) {
+      expect( res[0] )
     });
   });
 
@@ -65,7 +72,7 @@ describe('update', function () {
   it('updates a record', function (done) {
     var q = query().from('users').set('power', 200).where('name', 'joe');
     browser.exec( q, function (err, res) {
-      expect( res.power ).to.equal( 200 );
+      expect( res[0].power ).to.equal( 200 );
 
       var nq = query().from('users').find().where('name', 'joe');
       browser.exec( nq, function (err, res) {
