@@ -199,8 +199,8 @@ exports.create = function (req, cb) {
 
     // Save the collection back down
     lf.setItem( req.resource, table, function (res) {
-      // Return all created items or just the one
-      cb( null, req.content.length > 1 ? req.content : req.content[0] );
+      // Return all created items
+      cb( null, req.content );
     });
 
   });
@@ -391,8 +391,8 @@ exports.update = function (req, cb) {
 
     // Save it all back down
     lf.setItem( req.resource, table, function () {
-      // Return the single changed element or all changed elements
-      cb( null, returns.length === 1 ? returns[0] : returns );
+      // Return changed elements as array
+      cb( null, returns );
     });
 
 

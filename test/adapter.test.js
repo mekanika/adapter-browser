@@ -36,7 +36,7 @@ describe('create', function () {
     var qo = query().from('users').create({name:'joe', power:15});
     browser.exec( qo, function ( err, res ) {
       expect( err ).to.equal( null );
-      expect( res ).to.include.keys( 'name', 'power' );
+      expect( res[0] ).to.include.keys( 'name', 'power' );
       done();
     });
   });
